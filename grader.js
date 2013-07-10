@@ -38,26 +38,37 @@ var assertFileExists = function(infile) {
     return instr;
 };
 
-var assertURLExists = function(url) {
+var assertURLExists = function(uri) {
     /*   PUT some code here to check if URL is valid
 	if(!fs.existsSync(instr)) {
           console.log("%s does not exist. Exiting.", instr);
           process.exit(1); // http://nodejs.org/api/process.html#process_process_exit_code
+        
+	rest.get(url).on('complete', function(result) { 
+        if (result instanceof Error) {
+                console.error('Error: ' + result.message);
+                process.exit(1); // http://nodejs.org/api/process.html#process_process_exit_code
+                } else {
+                return url;
+       }
     }
 */
-    return url;
+    url = true;
+    return uri;
 };
 
-var cheerioHtmlFile = function(htmlfile) {
-    return cheerio.load(fs.readFileSync(htmlfile));
+var cheerioHTML = function(html) {
+/* add if statement to return load dependent on if HTML or a file */
+    if (url === true) { return cheerio.load(html); } else
+    return cheerio.load(fs.readFileSync(html));
 };
 
 var loadChecks = function(checksfile) {
     return JSON.parse(fs.readFileSync(checksfile));
 };
 
-var checkHtmlFile = function(htmlfile, checksfile) {
-    $ = cheerioHtmlFile(htmlfile);
+var checkHTML = function(html, checksfile) {
+    $ = cheerioHTML(html);
     var checks = loadChecks(checksfile).sort();
     var out = {};
     for(var ii in checks) {
@@ -88,7 +99,17 @@ var marketResearch = function(symbols, columns, csvfile, headers) {
     var apiurl = financeurl(symbols, columns);
     var response2console = buildfn(csvfile, headers);
     rest.get(apiurl).on('complete', response2console);
-}; */
+};
+
+rest.get('http://google.com').on('complete', function(result) { 
+  if (result instanceof Error) {
+    console.error('Error: ' + result.message);
+  } else {
+    return result;
+  }
+
+
+*/
 
 var clone = function(fn) {
     // Workaround for commander.js issue.
@@ -96,13 +117,16 @@ var clone = function(fn) {
     return fn.bind({});
 };
 
+var url = false;
+
 if(require.main == module) {
     program
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
         .option('-u, --url <url>', 'URL to html file for grading', clone(assertURLExists), URLPATH_DEFAULT)
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
         .parse(process.argv);
-    var checkJson = checkHtmlFile(program.file, program.checks);
+    if (url === true) { checkJson = checkHTML( program.html, program.checks); }
+    else var checkJson = checkHTML(program.file, program.checks);
     var outJson = JSON.stringify(checkJson, null, 4);
     console.log(outJson);
 } else {

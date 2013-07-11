@@ -83,7 +83,7 @@ if(require.main == module) {
         .option('-u, --url <url>', 'URL to html file for grading', clone(assertURLExists))
         .parse(process.argv);
     if (program.url) {
-          var httpGetResponse = buildFcn(programs.checks, program.url);
+          var httpGetResponse = buildFcn(program.checks, program.url);
           console.error("program.checks =" + program.checks + " ; program.url = " + program.url);
           rest.get(html).on('complete', httpGetResponse);
           }

@@ -28,6 +28,7 @@ var fs = require('fs');
 var program = require('commander');
 var cheerio = require('cheerio');
 var rest = require('restler');
+// var testurl = require('restler');
 var util = require('util');
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
@@ -41,10 +42,27 @@ var assertFileExists = function(infile) {
     return instr;
 };
 
-var buildFcn = function(jsoncheck, html) {
-    var response2 = function(result, response) {
+/* Could not get this to work; returns function from Build function again when trying to use
+   Must be not understanding closure because function seems to be call built function twice
+var notifyError = function(rtn) {
+      if (rtn instanceof Error) {
+         console.error('Error: ' + util.format(rtn.message));
+         process.exit(1);
+      }
+    return false;
+};
+*/
+
+var assertURLExists = function(url) {
+//      testurl.get(url).on('complete', notifyError);   // Could not get this to work -- trying to perform intermediate url test consistent with Assert File test
+      return url;
+};
+
+
+var buildFcn = function(jsoncheck) {
+    var response2 = function(result) {
         if (result instanceof Error) {
-            console.error('Error: ' + util.format(response.message));
+            console.error('Error: ' + util.format(result.message));
         } else  {
             var checks = loadChecks(jsoncheck).sort();
             $ = cheerio.load(result);
@@ -54,8 +72,8 @@ var buildFcn = function(jsoncheck, html) {
                 out[checks[ii]] = present;
             }
 
+            console.error("Calling JSON.Stringify ");
             var outJson = JSON.stringify(out, null, 4);
-            console.error("Got %s for html", html);
             console.log(outJson);
         }
     };
@@ -64,10 +82,6 @@ var buildFcn = function(jsoncheck, html) {
 
 var loadChecks = function(checksfile) {
     return JSON.parse(fs.readFileSync(checksfile));
-};
-
-var assertURLExists = function(url) {
-    return url;
 };
 
 var clone = function(fn) {
@@ -83,16 +97,14 @@ if(require.main == module) {
         .option('-u, --url <url>', 'URL to html file for grading', clone(assertURLExists))
         .parse(process.argv);
     if (program.url) {
-          var httpGetResponse = buildFcn(program.checks, program.url);
-          console.error("program.checks =" + program.checks + " ; program.url = " + program.url);
+          var httpGetResponse = buildFcn(program.checks);
+//          console.error("program.checks =" + program.checks + " ; program.url = " + program.url);
           rest.get(program.url).on('complete', httpGetResponse);
           }
-    else { url = false;
-          var chksfile = program.checks;
-          var htmlfile = program.file;
+    else { 
           console.error("checksfile =" + program.checks + " ; program.file = " + program.file);
-          var fsReadResponse = buildFcn(chksfile, htmlfile);
-          fs.readFile(htmlfile, fsReadResponse);
+          var fsReadResponse = buildFcn(program.checks);
+          fs.readFile(program.file, fsReadResponse);
          }
 } else {
     exports.checkHtmlFile = buildFcn;

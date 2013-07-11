@@ -94,8 +94,8 @@ if(require.main == module) {
     else { url = false;
           var chksfile = program.checks;
           var htmlfile = program.file;
-          console.error("chksfile =" + chksfile + " ; html = " + html);
-          var fsReadResponse = buildFcn(chksfile, html);
+          console.error("chksfile =" + chksfile + " ; html = " + htmlfile);
+          var fsReadResponse = buildFcn(chksfile, htmlfile);
           fs.readFile(htmlfile, fsReadResponse);
          }
 } else {

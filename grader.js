@@ -76,8 +76,6 @@ var clone = function(fn) {
     return fn.bind({});
 };
 
-var url = true;
-
 if(require.main == module) {
     program
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
@@ -85,16 +83,14 @@ if(require.main == module) {
         .option('-u, --url <url>', 'URL to html file for grading', clone(assertURLExists))
         .parse(process.argv);
     if (program.url) {
-          var chksfile = program.checks;
-          var html = program.url;
-          var httpGetResponse = buildFcn(chksfile, html);
-          console.error("chksfile =" + chksfile + " ; html = " + html);
+          var httpGetResponse = buildFcn(programs.checks, program.url);
+          console.error("program.checks =" + program.checks + " ; program.url = " + program.url);
           rest.get(html).on('complete', httpGetResponse);
           }
     else { url = false;
           var chksfile = program.checks;
           var htmlfile = program.file;
-          console.error("chksfile =" + chksfile + " ; html = " + htmlfile);
+          console.error("checksfile =" + program.checks + " ; program.file = " + program.file);
           var fsReadResponse = buildFcn(chksfile, htmlfile);
           fs.readFile(htmlfile, fsReadResponse);
          }

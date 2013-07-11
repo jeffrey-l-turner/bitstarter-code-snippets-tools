@@ -26,7 +26,7 @@ var program = require('commander');
 var cheerio = require('cheerio');
 var rest = require('restler');
 var HTMLFILE_DEFAULT = "index.html";
-var URLPATH_DEFAULT = "http://127.0.0.1//index.html"; // Defaults to localhost index.html
+/* var URLPATH_DEFAULT = "http://127.0.0.1//index.html"; // Defaults to localhost index.html */
 var CHECKSFILE_DEFAULT = "checks.json";
 
 var assertFileExists = function(infile) {
@@ -57,10 +57,22 @@ var assertURLExists = function(uri) {
     return uri;
 };
 
+var callback = function(rslt) {
+    if (rslt instanceof Error) {
+        console.error('Error: ' + rslt.message);
+        process.exit(1);                          // http://nodejs.org/api/process.html#process_process_exit_code
+    } else {
+    var outJson = JSON.stringify(checkJson, null, 4);
+    console.log(outJson);
+    }
+};
+
 var cheerioHTML = function(html) {
 /* add if statement to return load dependent on if HTML or a file */
-    if (url === true) { return cheerio.load(html); } else
-    return cheerio.load(fs.readFileSync(html));
+    if (url === true) {
+	rest.get(html).on('complete', callback(dom));
+        }
+    else return cheerio.load(fs.readFile(html, callback(dom)));
 };
 
 var loadChecks = function(checksfile) {
@@ -68,7 +80,9 @@ var loadChecks = function(checksfile) {
 };
 
 var checkHTML = function(html, checksfile) {
+    console.log("html = " + html);
     $ = cheerioHTML(html);
+//  console.log("$ = " + $);
     var checks = loadChecks(checksfile).sort();
     var out = {};
     for(var ii in checks) {
@@ -118,17 +132,20 @@ var clone = function(fn) {
 };
 
 var url = false;
+var dom;
 
 if(require.main == module) {
     program
         .option('-c, --checks <check_file>', 'Path to checks.json', clone(assertFileExists), CHECKSFILE_DEFAULT)
-        .option('-u, --url <url>', 'URL to html file for grading', clone(assertURLExists), URLPATH_DEFAULT)
         .option('-f, --file <html_file>', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
+        .option('-u, --url <url>', 'URL to html file for grading', clone(assertURLExists))
         .parse(process.argv);
-    if (url === true) { checkJson = checkHTML( program.html, program.checks); }
-    else var checkJson = checkHTML(program.file, program.checks);
-    var outJson = JSON.stringify(checkJson, null, 4);
-    console.log(outJson);
+    if (program.url) // { console.log("program.url = " + program.url); 
+                       //          console.log("program.checks = " + program.checks); 
+              { var checkJson = checkHTML(program.url, program.checks); } 
+    else { url = false; var checkJson = checkHTML(program.file, program.checks);}
+//    var outJson = JSON.stringify(checkJson, null, 4);
+//    console.log(outJson);
 } else {
-    exports.checkHtmlFile = checkHtmlFile;
+    exports.checkHtml = checkHTML;
 }

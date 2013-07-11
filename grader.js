@@ -85,7 +85,7 @@ if(require.main == module) {
     if (program.url) {
           var httpGetResponse = buildFcn(program.checks, program.url);
           console.error("program.checks =" + program.checks + " ; program.url = " + program.url);
-          rest.get(html).on('complete', httpGetResponse);
+          rest.get(program.url).on('complete', httpGetResponse);
           }
     else { url = false;
           var chksfile = program.checks;

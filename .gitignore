@@ -1,6 +1,8 @@
 # Heroku environmental variables, including API keys.
 # https://devcenter.heroku.com/articles/config-vars
 .env
+ssjs_db
+ssjs_db.pub
 
 # npm packages
 node_modules

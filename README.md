@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Installation
 ============
 The following instructions will set up a more complex bitstarter than the
@@ -47,3 +48,9 @@ Then you can go to a URL like http://safe-dawn-4440.herokuapp.com and submit
 orders to test it out. Note again that you will get an "invalid api key"
 error if you didn't do the `.env` step above.
 
+=======
+bitstarter
+==========
+
+for Stanford-Coursera "Startup Engineering" course grading and homework
+>>>>>>> 616fad4154c46adef0f5f5a5b008c775e9288a27

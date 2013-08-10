@@ -1,0 +1,227 @@
+/*!
+ * Cambix localized css for Bootstrap Responsive v2.3.2
+ *
+ *
+ * for Stanford/Coursera class
+ */
+
+/* .navbar{
+margin:10px 0px 10px 0px;
+}
+*/
+
+/* .navbar-inner > .container{
+width:940px;
+}
+*/
+
+/* For small capping Cambix and creating outline color */
+sc {
+    font-size: 125%;
+    font-variant: small-caps;
+    text-shadow: 1px 2px 0px #1d8a0b;
+}
+
+/* For Google font problems with spacing and setting shadow */
+.c1 {color: #F2A50F; letter-spacing: 18pt; text-shadow: 2px 3px 0px #1bb521; text-shadow: 4px 5px 0px #0b2f8a;}
+
+/* For customizing button used for Sponsorship (want more rounded look)  */
+.btn_rounded {
+   -webkit-border-radius: 35px;
+   -moz-border-radius: 35px;
+   border-radius: 35px;
+}
+
+.github_space {
+    margin: auto auto;
+}
+
+/* For "code" style markup to make copying out off the screen easier  */
+
+.code {
+  font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+  color: #52595d;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 0px 3px;
+  display: inline-block; 
+  margin: 0px;
+}
+
+
+.pre {
+  border: 1px solid #cacaca;
+  line-height: 1.2em;
+  font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+  padding: 10px;
+  overflow:auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #FAFAFB;
+  color: #393939;
+  margin: 0px;
+}
+
+
+
+/* customized navbar top with green/gold and blue gradient overlay */
+.navbar-inner{
+/* border-radius:10px; */
+/* background: #1d8a0b !important; */
+background-image: none;
+background-repeat: no-repeat;
+
+/* filter: none !important; */
+background: -moz-linear-gradient(top,  rgba(19,99,37,0.9) 0%, rgba(43,51,183,0.9) 92%, rgba(45,47,196,1) 100%) !important; /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(19,99,37,0.9)), color-stop(92%,rgba(43,51,183,0.9)), color-stop(100%,rgba(45,47,196,1))) !important; /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(19,99,37,0.9) 0%,rgba(43,51,183,0.9) 92%,rgba(45,47,196,1) 100%) !important; /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(19,99,37,0.9) 0%,rgba(43,51,183,0.9) 92%,rgba(45,47,196,1) 100%) !important; /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(19,99,37,0.9) 0%,rgba(43,51,183,0.9) 92%,rgba(45,47,196,1) 100%) !important; /* IE10+ */
+background: linear-gradient(to bottom,  rgba(19,99,37,0.9) 0%,rgba(43,51,183,0.9) 92%,rgba(45,47,196,1) 100%) !important; /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6136325', endColorstr='#2d2fc4',GradientType=0 ) !important; /* IE6-9 */
+/* end overlay */
+
+border-top:0px solid #cc412a !important;
+border-bottom:23px solid #f2a50f !important;
+border-left:0px !important;
+border-right:0px !important;
+}
+
+
+.navbar .caret{
+border-top-color:#f2a50f !important;
+border-bottom-color:#f2a50f !important;
+}
+
+
+.navbar .brand{
+color:white !important;
+/* text-shadow:none !important; */
+}
+
+/*
+.navbar .nav{
+border-left:1px solid #cc412a;
+border-right:1px solid #e75f48;
+}
+
+*/
+.navbar .nav > li > a{
+padding:12px 15px 12px;
+color:#fff !important;
+text-shadow:none !important;
+border-right: 1px solid green;
+border-left:1px solid green;
+-webkit-transition:background 1s ease;
+-moz-transition:background 1s ease;
+-o-transition:background 1s ease;
+transition:background 1s ease;
+}
+
+
+.navbar .nav > li > a:hover{
+background:#f2a50f !important;
+color:white !important;
+-webkit-transition:background 1s ease;
+-moz-transition:background 1s ease;
+-o-transition:background 1s ease;
+transition:background 1s ease;
+}
+
+
+
+.navbar .nav .active > a,
+.navbar .nav .active > a:hover,
+.navbar .nav .active > a:focus {
+color: white;
+/* box-shadow:none;
+ background: green !important; */
+}
+
+/*
+
+.dropdown-toggle{
+background: #e24e35 !important;
+}
+
+.nav-collapse a{
+font-weight:normal !important;
+text-shadow:none !important;
+}
+
+.dropdown-menu{
+background:#e24e35 !important;
+border-radius:0px !important;
+box-shadow:none !important;
+border-bottom:none !important;
+padding:0px 0px;
+margin:0px;
+}
+
+.dropdown-menu a{
+background:#e24e35 !important;
+padding:9px 10px;
+color:#fff !important;
+text-shadow:none !important;
+-webkit-transition:background 1s ease;
+-moz-transition:background 1s ease;
+-o-transition:background 1s ease;
+transition:background 1s ease;
+border-bottom:1px solid #cc412a;
+}
+
+.dropdown-menu a:hover,.dropdown-menu a:focus{
+filter:none !important;
+background:#cc412a !important;
+-webkit-transition:background 1s ease;
+-moz-transition:background 1s ease;
+-o-transition:background 1s ease;
+transition:background 1s ease;
+}
+
+.dropdown-menu::after, .dropdown-menu::before{
+border:none !important;
+}
+*/
+
+
+/* for responsive design */
+
+
+@media (max-width: 767px){
+   .navbar{
+   margin-left:-20px;
+   margin-right:-20px;
+   }
+   .navbar .nav{
+   border:0px !important;
+   }
+   .navbar .nav > li > a{
+   border:0px !important;
+   }
+   .dropdown-menu a{
+   border-bottom:none !important;
+   }   
+}
+
+@media (min-width: 768px) and (max-width: 979px){
+   .navbar .nav{
+   border:0px !important;
+   }
+   .navbar .nav > li > a{
+   border:0px !important;
+   }
+   .dropdown-menu a{
+   border-bottom:none !important;
+   }
+}

@@ -2,6 +2,8 @@
 # https://devcenter.heroku.com/articles/config-vars
 .env
 .env.dummy
+ssjs_db
+ssjs_db.pub
 
 # npm packages
 node_modules

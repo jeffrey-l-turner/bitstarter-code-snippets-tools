@@ -3,7 +3,7 @@
 <<<<<<< HEAD
   <head>
     <meta charset="utf-8">
-    <title>My First Bitstarter</title>
+    <title>CAMBIX: Scaling the Bitcoin Economy</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
@@ -13,7 +13,11 @@
     <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,300,400,600,700,800" 
           rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/cambix.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"> 
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <style type="text/css">
+
 
       /* Large desktop */
       @media (min-width: 980px) { 
@@ -99,23 +103,26 @@
         color: #ccccff;
       }
 
-     /* http://support.addthis.com/customer/portal/questions/1136093-share-buttons-in-center-position */      
-     div.addthis_toolbox {
-      width: 174px;
-      margin: 0 auto;
-     }
+      /* http://support.addthis.com/customer/portal/questions/1136093-share-buttons-in-center-position */      
+      div.addthis_toolbox {
+          width:180px;
+          margin: 0 auto;
+      }
+
     </style>
-<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-42843113-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+      <!-- Google Analytics "classic" code snippet: --> 
+      <script type="text/javascript">
+      
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-43028302-1']);
+        _gaq.push(['_trackPageview']);
+      
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
 
 </script>
   </head>
@@ -136,8 +143,9 @@
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
+              <li><a href="#architecture">Architecture</a></li>
+              <li><a href="#design">Design</a></li>
               <li><a href="#about">About</a></li>
-              <li><a href="/orders">Orders</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -154,78 +162,94 @@
       <!-- www.google.com/fonts/specimen/Ubuntu#pairings -->
       <div class="row-fluid heading">
         <div class="span12">
-          <h1>Product: Development Version</h1>
+          <!-- could not format small caps with Google fonts so increasing spacing  and using inline small caps instead of css  -->
+          <h1 class="c1"><sc>Cambix<sc></h1>   
         </div>
       </div> 
       <div class="row-fluid subheading">
         <div class="span12">
           <!-- Special typography from Bootstrap for lead paragraph. -->
           <!-- http://twitter.github.io/bootstrap/base-css.html#typography -->
-          <p class="lead">One sentence description.</p>
+          <p class="lead">An Open and Scalable Virtual Exchange Platform for Bitcoin.</p>
         </div>
       </div>
       <div class="row-fluid pitch">
         <div class="span5 offset1 video">
-          <img class="img-polaroid" src="http://placehold.it/480x300">
+          <img class="img-polaroid" alt="Placeholder" src="/img/CMBX_vid_placeholder.png">
         </div>
 
         <!-- We define a new 'actions' div to contain statistics, order, and share buttons.-->
         <div class="span5 actions">
-          <div class="row-fluid">
+         <div class="row-fluid">
           <div class="span8 offset2">
-            <div class="row-fluid statistics">
+           <div class="row-fluid statistics">
+            <div class="statistics">
               <div class="span4">
                 <!-- linediv-l and linediv-r give dividing lines that look
                 different in horizontal and vertical layouts, illustrating
                 media queries. -->
                 <div class="linediv-l">
-                <h3>1000</h3> <p>backers</p>
+                <h3>5</h3> <p>backers</p>
                 </div>
               </div>
               <div class="span4">
                 <div class="linediv-c">
-                  <h3>$6000</h3> <p>of $10,000</p>
+                  <h3>$1</h3> <p>of $100,000</p>
                 </div>
               </div>
               <div class="span4">
                 <div class="linediv-r">
-                <h3>10</h3> <p>days left</p>
+                <h3>100</h3> <p>days left</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="row-fluid">
-          <div class="span10 offset1">
+           <div class="span10 offset1">
             <!-- Bootstrap progress bar -->
             <!-- http://twitter.github.io/bootstrap/components.html#progress -->
             <div class="thermometer progress active">
               <div class="bar bar-success" style="width: 60%;"></div>
               <div class="bar bar-warning" style="width: 40%;"></div>
             </div>
-          </div>
-          </div>
-          <div class="row-fluid">
-          <div class="span6 offset3 order">
-	    <a class="coinbase-button" data-button-style="custom_large" data-button-text="Preorder with Bitcoin" data-code="13b56883764b54e6ab56fef3bcc7229c" href="https://coinbase.com/checkouts/13b56883764b54e6ab56fef3bcc7229c">Preorder with Bitcoin</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
-	  </div>
+           </div>
           </div>
           <div class="row-fluid">
-          <div class="span8 offset2 social">
-            <!-- AddThis Button BEGIN -->
-            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-              <a class="addthis_button_preferred_1"></a>
-              <a class="addthis_button_preferred_2"></a>
-              <a class="addthis_button_compact"></a>
-              <a class="addthis_counter addthis_bubble_style"></a>
-            </div>
-	     <script type="text/javascript">var addthis_config = 
-	      {"data_track_addressbar":true};</script>
-	     <script type="text/javascript" 
- 		     src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51e5f5d9549fdf9b"></script>
-            <!-- AddThis Button END -->
+           <div class="span6 offset3 order">
+            <!-- Standard Bootstrap button. -->
+            <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
+            <!-- btn_rounded modified in cambix.css to make button more rounded and distinct from social net buttons -->
+            <! --  <button class="btn btn_rounded btn-success btn-large"><font size=+1><b><em>Sponsor</em></b></font><br><font size=-1>(Features or Project)</font></button> -->
+
+            <!-- Using Coingbase button for Bitcoin payments -->
+             <a class="coinbase-button" data-code="a0c2c2a8b8d7fc798f611909dccb68d9" data-button-style="custom_small" 
+             href="https://coinbase.com/checkouts/a0c2c2a8b8d7fc798f611909dccb68d9">Donate Bitcoins</a><script src="https://coinbase.com/assets/button.js" type="text/javascript"></script>
+
+           </div>
           </div>
+          <div class="row-fluid">
+           <div class="span8 offset2 social">
+            <!-- Social buttons are not included in default Bootstrap. -->
+            <!-- See: http://noizwaves.github.io/bootstrap-social-buttons -->
+
+               <!-- AddThis Button BEGIN -->
+               <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+               <a class="addthis_button_preferred_1"></a>
+               <a class="addthis_button_preferred_2"></a>
+               <a class="addthis_button_preferred_3"></a>
+               <a class="addthis_button_preferred_4"></a>
+               <a class="addthis_button_compact"></a>
+               <a class="addthis_counter addthis_bubble_style"></a>
+                <!-- Keeping GitHub button since AddThis doesn't support it -->
+                <button class="btn btn-github github_space btn-medium"><i class="icon-github"></i> | GitHub</button>
+               </div>
+               <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+               <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51fb54054a1fd844"></script>
+               <!-- AddThis Button END -->
+               
+           </div>
           </div>
-        </div>
+         </div>
         </div>
       </div>
 
@@ -235,21 +259,26 @@
       <!-- http://placehold.it -->
       <div class="row-fluid section1">
         <div class="span5 offset1 asset">
-          <img class="img-polaroid" src="http://placehold.it/480x300">
+          <img class="img-polaroid" alt="Placeholder" style="width: 400px; height: 300px; overflow: inherit" src="/img/CMBX_prop_arch.png">
         </div>
         <div class="span5 copy">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            porta, dui sagittis hendrerit rutrum, nunc leo tempus nisl, eu
-            mollis justo velit at nunc. Fusce nec egestas sem. Donec
-            fringilla ante lectus, a pellentesque lacus dignissim ac. Sed
-            volutpat lorem ut congue malesuada. In facilisis scelerisque
-            turpis sed lacinia. Donec in orci lectus. Donec auctor semper
-            quam, eget rhoncus purus fringilla id. Phasellus id nibh eu
-            risus ultrices adipiscing.  Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Donec porta, dui sagittis hendrerit
-            rutrum, nunc leo tempus nisl, eu mollis justo velit at
-            nunc. Fusce nec egestas sem. Donec fringilla.
+            Bitcoin is at a crossroads. Just a few major currency exchanges or <sc>
+            <a href="http://en.wikipedia.org/wiki/Cambio" target="_blank">
+            "cambios" </a></sc> serve the majority of the Bitcoin economy.
+            With such a significant majority of Bitcoin transactions 
+            operating through so few cambios, the entire Bitcoin
+            ecosystem is at risk. From 
+            <a href="http://techcrunch.com/2013/07/02/regulation-means-the-bitcoin-gold-rush-will-not-happen-in-the-us-say-experts/" target="_blank">
+            over-regulation</a> or with just a few
+            <a href="http://businessinsider.com/bitcoin-exchange-mt-gox-temporarily-suspends-dollar-withdrawals-2013-6/"
+            target="_blank">exchanges failing</a>, the Bitcoin economy could collapse as a result.
+            We propose the development of a peer-to-peer value exchange
+            platform. This platform will scale Bitcoin by allowing
+            parties to directly transact with one another in a private and secure
+            fashion. The reliance on a select few cambios
+            can be eliminated. Thus, a much more robust Bitcoin economy
+            can develop and flourish.
           </p>
         </div>
       </div>
@@ -257,21 +286,18 @@
       <div class="row-fluid section2">
         <div class="span5 offset1 copy copy-right">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            porta, dui sagittis hendrerit rutrum, nunc leo tempus nisl, eu
-            mollis justo velit at nunc. Fusce nec egestas sem. Donec
-            fringilla ante lectus, a pellentesque lacus dignissim ac. Sed
-            volutpat lorem ut congue malesuada. In facilisis scelerisque
-            turpis sed lacinia. Donec in orci lectus. Donec auctor semper
-            quam, eget rhoncus purus fringilla id. Phasellus id nibh eu
-            risus ultrices adipiscing.  Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Donec porta, dui sagittis hendrerit
-            rutrum, nunc leo tempus nisl, eu mollis justo velit at
-            nunc. Fusce nec egestas sem. Donec fringilla.
+            <h3> <em>Features:</em>
+            <blockquote>Open Source <br>
+            Scalable <br>
+            Decentralized <br>
+            Peer-to-Peer Exchange <br>
+            Private <br>
+            Secure </h3>
+            </blockquote>
           </p>
         </div>
         <div class="span5 asset">
-          <img class="img-polaroid" src="http://placehold.it/480x300">
+          <img class="img-polaroid" alt="Placeholder" style="width: 400px; height: 300px; overflow: hidden" src="/img/CMBX_design.png">
         </div>
       </div>
 
@@ -282,36 +308,310 @@
           <div class="span10 offset1">
             <h3>FAQ</h3>
             <div class="accordion" id="accordion2">
+
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <a class="accordion-toggle" data-toggle="collapse"
                      data-parent="#accordion2" href="#collapseOne">
-                    What does FAQ stand for?
+                    Why do we need such a platform?
                   </a>
                 </div>
                 <div id="collapseOne" class="accordion-body collapse">
                   <div class="accordion-inner">
-                    Frequently Asked Question.
+                    Currently, Bitcoin does not have a virtual currency exchange mechanism. Parties must use
+                    individual currency and value exchanges such as Mt. Gox. Unfortunately, the existing exchange
+                    model is vulnerable to over-regulation or systemic failure. A "virtual" cambio must be developed.
+                    <sc> Cambix</sc> proposes to provide a system in which privacy of transactions can be maintained while
+                    insuring that attackers may not subvert online trading. A virtual exchange will not only help
+                    market liquidity for Bitcoin, it will also make the overall system more immune to individual exchange
+                    failure.
                   </div>
                 </div>
               </div>
+
               <div class="accordion-group">
                 <div class="accordion-heading">
                   <a class="accordion-toggle" data-toggle="collapse"
                      data-parent="#accordion2" href="#collapseTwo">
-                    What's a Frequently Asked Question?
+                    What are the market requirements for the platform?
                   </a>
                 </div>
                 <div id="collapseTwo" class="accordion-body collapse">
                   <div class="accordion-inner">
-                    A question which is commonly asked by users.
+                    The Bitcoin community currently lacks a ubiquitous mechanism by which parties can 
+                    discover what other parties wish to sell along with verfying that the 
+                    exchanges were properly executed. Virtual goods, including virtual financial
+                    instruments such as Bitcoin or altcoin exchanges are particularly challenged.
+                    Our goal is to provide a platform by which these exchanges can be made "in the
+                    cloud" and allow parties to buy or sell any asset class they define. Of course,
+                    reputation and escrow mechanisms may be required&#8212;particularly for the exchange
+                    of physical goods.
                   </div>
                 </div>
               </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseTrust">
+                    Exchanging physical goods and traditional financial instruments requires trust and non-anonymity amongst the parties.  Will this platform be only useful for virtual goods and assets?
+                  </a>
+                </div>
+                <div id="collapseTrust" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    Of course, today, many people will 
+                    <a href="http://www.businessweek.com/articles/2013-07-18/bitcoins-open-air-trading-floor" 
+                    target"_blank">feel much more comfortable exchanging bitcoins in a non-anomous environment where they can be assured of little counter-party risk
+                    </a>. Trust and reputation networks have not sufficiently built-up in the virtual world
+                    to minimize <a href="http://www.investopedia.com/terms/c/counterpartyrisk.asp" target="_blank">counter-party risk</a>.
+                    This platform will help reduce that risk in that parties can be assured of secure, private,
+                    and reliable transaction data is being exchanged. Virtual goods, services and financial instruments
+                    are, of course, more serviceable by an online exchange platform than physical one.  However,
+                    as the Bitcoin ecosystem evolves, trust and reputation networks will emerge leveraging
+                    platforms like the one we're developing here.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseLBOTC">
+                    How will this platform compare with LocalBitcoins or Bitcoin-OTC?
+                  </a>
+                </div>
+                <div id="collapseLBOTC" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    <a href="http://Localbitcoins.com" target="_blank">LocalBitcoins</a>
+                    is primarily focused on enabling individuals to physically exchange Bitcoins for other physical assets (e.g. cash)
+                    and is centralized on a single website. It is not focused on providing an online trading mechanism or platform.<br>
+                    <a href="http://wiki.bitcoin-otc.com/" target="_blank">Bitcoin-OTC</a> 
+                    on the other hand, is designed as an online trading system. However, it lacks a spam-free
+                    machine-to-machine communications mechanism.  In addition, our system is designed to support
+                    offline usage while keeping the virtualized exchange online performing automated trading. In essence,
+                    the market needs a platform which supports discoverability, privacy, integrity and operates on a 24x7 basis.
+                    (A detailed discussion of these requirements can be found <a href="https://bitcointalk.org/index.php?topic=212490.0;all" target="_blank">here</a>.) 
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseComponents">
+                    What other components are needed to make the platform successful?
+                  </a>
+                </div>
+                <div id="collapseComponents" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    The platform requires a secure, discoverable mechanism in which parties can communicate with one
+                    another without others interferring with that communication (such as "spam" or false transactions). There are
+                    several other open source projects which can assist this one. Specifically,<a href="https://github.com/Bitmessage/PyBitmessage" target="_blank">
+                    BitMessage ("PyBitmessage")</a>, ensures that parties receive cryptographically secure messages over a broadcast 
+                    network and has spam prevention features. In addition, <a href="https://github.com/FellowTraveler/Open-Transactions" target="_blank">
+                    Open-Transactions </a> will allow for parties to transact business anonymously and verifiably through the network.
+                    By combining these facilities with a virtual exchange, users will be able to interact and transact business for virtual, financial
+                    and physical goods.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseFour">
+                    Isn't OpenCoin's Ripple currency (XRP) going to solve this problem?
+                  </a>
+                </div>
+                <div id="collapseFour" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    First and foremost, OpenCoin's Ripple currency is not truly "open." It is a proprietary
+                    system designed to establish Ripples as the primary medium of exchange amongst the parties.
+                    (See: <a href="http://ripplescam.org/" target="_blank">"Ripple Scam"</a> .) 
+                    Ripples are "pre-mined" property of OpenCoin. As such, the approach neither fits with the 
+                    philosophy or "fairness" of Bitcoin.  In addition, OpenCoin has different overall goals.
+                    Their system is broadly focused on identifying and exchanging value via a network of trust.
+                    Ultimately, OpenCoin wants to allow participants to exchange different types of assets 
+                    across a "trust network" of intermediaries in way that all parties receive their desired value. Under their
+                    proposed framework, party A could buy gold from party C in exchange for dollars if party
+                    B was willing to sell Euros to party C and receive dollars in exchange. 
+                    Their system could have very broad applications but is not focused on the immediate
+                    needs of the Bitcoin community. Hence, a more narrowly focused virtual exchange platform 
+                    that fits within the spirit of Bitcoin must be developed. <sc>Cambix</sc> proposes a system 
+                    in which Bitcoin, itself, can be used as that medium of exchange. 
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseFive">
+                    How will the contributions be used? May I specify how the project should be prioritized with my sponsorship?
+                  </a>
+                </div>
+                <div id="collapseFive" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    The $100,000 in contributions are expected to pay for approximately 2 full time equivalent
+                    engineering resources for 6 months along with ancillary testing and infrastructure resources
+                    (two Mac or Chromebook computers as well as an Amazon Web Services account).  The donations 
+                    will be used to develop the software with a concentation on building the HTML5 user interface 
+                    components first. Specifically, we intend to focus on creating a virtualized infrastructure 
+                    with a single online transaction instance back-end initally. We will then integrate the online 
+                    transaction platform to tie the trading activity together with mutliple exchange instances. 
+                    This will allow us to focus on human factors in our development cycle, while allowing the other 
+                    open source components we require to mature.
+                    <br>And, yes&#8212;we will be allowing donation activity to drive the feature set priorities.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseIncv">
+                    Will I receive any special benefits by being an early contributor or contributing a minimum amount?
+                  </a>
+                </div>
+                <div id="collapseIncv" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    We have not yet decided how to provide additional incentives. Currently, we think that one benefit
+                    commercial operators could provide would be to enable a more reliable and low latency network
+                    infrastructure for the communications betwen the virtual exchange instances. This would provide
+                    advantages to traders using the platform with priority because their trades could be executed
+                    more quickly. We're exploring this approach. Please check back with us as our plan evolves.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseWallet">
+                    Will this project be like a new Bitcoin or altcoin wallet?
+                  </a>
+                </div>
+                <div id="collapseWallet" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    No. This project is designed to enable a new trading platform that
+                    can support a wide variety of financial instruments but does
+                    not compete with the wallet implementations themselves. 
+                    Our intention is to enable a broad range of new virtual digital
+                    assets&#8212;including enabling exchange into "altcoins" such as
+                    <a href="http://litecoin.org/" target="_blank"> litecoin </a>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseOnlyBTC">
+                    Is this project only serving Bitcoin? What about other Alt-currencies?
+                  </a>
+                </div>
+                <div id="collapseOnlyBTC" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    Of course, any virtual or physical instrument could be traded using the platform.
+                    Other altcoins and currencies could be supported as end-users might choose to
+                    make them part of their asset to be bought or sold. Initially, our focus will
+                    be to serve Bitcoin community. Bitcoin <a href="https://bitcointalk.org/?topic=41.0" target="_blank">
+                    BTC</a>  will act as both the medium of exchange and 
+                    <a href="http://en.wikipedia.org/wiki/Price_signal" target="_blank">price signalling mechanism</a>.
+                  </div>
+                </div>
+              </div>
+
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse"
+                     data-parent="#accordion2" href="#collapseEight">
+                    How can I contribute or sponsor the project?
+                  </a>
+                </div>
+                <div id="collapseEight" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    Please donate via the button above.  You can also
+                    follow us on GitHub and work collaboratively with us there.
+                    We welcome your feedback. You can send thoughts, questions or
+		    suggestions to:<a href="mailto:info@cambix.org"> info <em>at</em> cambix.org</a>.<br>
+		    Our PGP/GPG Key is:<br><br><span class="pre"><span class="code">
+-----BEGIN PGP PUBLIC KEY BLOCK-----<br>
+Version: GnuPG/MacGPG2 v2.0.19 (Darwin)<br>
+<br>
+mQINBFHpxk4BEAC4zwVaxsxrxN5dDQOIySXG1c1GF0OuMfNTcYQgPEC7yTPwiVmg<br>
+9qQUaBah+OWZPQtLjZlOU1VccUpMW/oXU1eZohaM9txXzcbRCfR1pMBflbjxGXcn<br>
+aE9YYXClOmV3+GJJIaR6mkKHnCHAhGfeIA2GiRWxyKRZ5ySkCqMf0PrH52AkGxTt<br> 
+rz3OaKYeUeNF28FpZt5aMWMrywS9Jwynvvr1AxsO0GB0Gm9mXsreVNEZdT7hpKDp<br>
+mTxYIr/YlUsC1HJ2euFbmSotva/NIAAbM8TaE4g8U8o1rmp7+RG1d9cPNUJgo5Yo<br>
+GYnHauXVECuFNRzKSrvIsu6/jP8dLctr3AYfzlPPGiR+XjiGBtsnm1Dg1kB4hv1C<br>
+B9tMMOXIFIpfeoDDukgD09ZLNICUHZnDkfDtV9UXrM/oTpmD8FvuwepHKamgFZ2U<br>
+mNgfx+61jwMpH3FoXUDNCmsrha41Qn1Hhs5n/wK6yQCYIXI4OGApxoRp40qHFudU<br>
+V8BBg3BtTu+DfEZZ6WvlvlnjUTp3L9DVZmdRVdclswy4ZQEPkJwBEX7zN9EJkxl7<br>
+G4eMTi2o4bH+X9RzZBbUJ5W9GWPVf9QfesKwHgmoODVjxSEdVtq3K9ePiynCB28x<br>
+Y7nXn2Of933ueJs7dvAgy8ApXkDr0FaE+PZeYs/KY7zizrd61MKHMpd+ewARAQAB<br>
+tDtJbmZvLmF0LkNhbWJpeC5vcmcgKEluZm8gPGF0PiBDYW1iaXgub3JnKSA8aW5m<br>
+b0BjYW1iaXgub3JnPokCPgQTAQIAKAUCUenGTgIbLwUJCkIsAAYLCQgHAwIGFQgC<br>
+CQoLBBYCAwECHgECF4AACgkQk1RUHNx7z4Biew//bGiY5rLS19piYuzGUaKvuPbZ<br>
+esJNAlQDQltNvEwkQ7P+3J8yMsJ9X56Jtf/jPkBjcr7fBL/JUx5nvITDYnNe78Q1<br>
+VT/tkYsmpLfgAPwPaIkFJCXnWLbZE0yaJ4LXbmkeJXoZpAf0HabyacsI8cGvfS6k<br>
+OdjRfrG5N+SKNMZ8+xzOusZTN0R291CR5d/xiaNwrbiDiGw9WJ9JAR3XwMZouyM1<br>
+quciqx+aav2DBpQV5z+CCN9Ln+rSUZFAZaq4JesSMQHsBvltJkCy5z7yb2SKd3sB<br>
+mK0ybgHM7uCe7Xq2AZn4e1icR8qpww1pgJvDRNhY9LR8JjUaUSZ9bQHCZSRxXOEz<br>
+uOLdhcl+DyOZxi+WGjlRDJZ20PVwwk7T+yiYzkpt6Ds+clUmOA+Qm/dFEnWsMrRY<br>
+4SCzHkiRty8ze9+rvSu0i/jacc87vDlGd8e8gXNMb4jIgqJCWdfu1WeyEVJK/ZPb<br>
+1kPfs9bXOI67g4wcqx+/8h4FOYYEgKhZJlgmxE3xVWTtjQmc99/LDf87Dm3X+a6U<br>
++gykyVH8rWjJot+7ZrNY0VVnsgDTC7+aRg7NTgIR58P0BsKgAZIyIQNSs0hYPjK5<br>
+diHhqgi/qcnCzz+Jbd0zW/nZm5M2zBUrNdAYeSemCXADC+yKQCpLnapxxEVbL/Rt<br>
+zTG33dmxNbSrzNlnDKu5Ag0EUenGTgEQALYS52t7gZBOMDRI3TDbPXDThIHyVfLs<br>
+b9Rz6RaPqPtB0Txd9J2uXumzUA/BUJYnl0ukzVsG0qipBgUjMIO5Kktuid/lH3HI<br>
+HsFLyFHV6c7V2ycZa2AH7MLoyEi/RqpmVhvj1tj2f8bu8BjA3gxptnHjpi13+mIX<br>
+rF6zu0vivLSRTnZWjqHCa9m2wZX+KJKoTe9KTp8MAlWfwtJhc32oaQ9ocIqjuxzG<br>
+Ct0mU6D/zzBZr8rpQDxMqYIO0HiDJ4BMTdXTngNPoVXFQyhnFQU0AClCuk5XGg0l<br>
+QdPMlLClQcNho3H7psI5MJYheJ2axFggajd7VeONB3WkeIMJfKqeZ1eicNWa53dT<br>
+WSbJliWLRoRBethOmgGjJkTrNgJXVP0ko0cT79kB74M8lLZ2T65I2oYxIfrYL+r+<br>
+hNxhGAkYgZ8AMNsYckc3eir6dIZ31atJjTTdE5jBXdVNOY0Q3i18H7aAhYxhLlzZ<br>
+y69BAaqWb1Y+qedIjv3gGcEbrjU6gDjodTM0ePzIAM7ujzMXzfxSWHZobPhWxJQt<br>
+bWwGGPTk0kU5z2vWzEfJbWJjBhTEZPufe6FgslUwNFE6WCAF+ESEJq5SowGQ1Hg1<br>
+HLE4+7X0DbB86LQwwiLUEm5YYJsroQ6v8McV4W76YonanlHjMXC4DVHRDAtsldf9<br>
+xar+0JkI/uIlABEBAAGJBEQEGAECAA8FAlHpxk4CGy4FCQpCLAACKQkQk1RUHNx7<br>
+z4DBXSAEGQECAAYFAlHpxk4ACgkQZP8oS0QfCBgL7w/6AwvHdAYIi+7EqfhySyya<br>
+fvezDDkumcIBsvXE/51RDNn8icNXz+eaSb09j9vuMiQucxL0JMwXLKpCrVjrX3a+<br>
+IZjOsZIZgZbhFaTh7vGJEgyCBdZdgDODc7ePN3MTzu7QmryCWDT3RIu+JgfkAurn<br>
+Mqv3Mi+Qur5VgrKEfsymw6O/pU1Cv14prWLLGC59TGq6KilsSfCtgmp8JSUjYEzG<br>
+BCU4JRQhELRJVcC4d/fRXIZGYJkCTBGJNARpvCxRScCbrBKo2jjT0NTKQt2VLuwW<br>
+JBVPm+akszpRy8+YUFiWWOjGH7bRhs1sHAyXjYlYsSvFLURWHVGs7QisZXerPgRc<br>
+rO5SkVtkvHw+9wtwmcSghlZrOQisNOmhhB2Mr0emNkbRInYK3hDdRGtz8tLsbA2n<br>
+x7SmZ9u+Ly2Yr9FEyPPT2KwVJPjk74wncxUxxudYEZasqQa1net8uOF3BmA49Dfd<br>
+rxaLQVnasxxq+cH4s8dFE6fGu2oKDBUSVvnXXhvc3RrstKcc+xm++crkLGJz55A2<br>
+uAp0JzI+qFCAV2K6wuo6QcbmdjlVUjj/fARYgOqK3VwEMFWVDne56GVI6UB+izRu<br>
+kwSxJIO774xas/+wDTqHp17uI4DWfid1+zbujKs6QJfwtR70CpkZAVQRHvhlTVB5<br>
+IkwKl9K7E79EN5EaKOjisFUjKA//R5hy9iOl/tGG9du0kTnwaPKrvqK4B5IltMtc<br>
+p8IVrtnT2Je440zXvVg5YT3KjJ+6G6ovTOQ8wzv4HrKfUFLp7BpAUnvUoH5hJ1X1<br>
+YyzEK+Kb6NiW3/sfB3KKbQBvmyr1dLRTtwAnGK1h0Bc/s47yyZ8YE9BJ2nYhF8MP<br>
+FTv1WBXEZnddSLCnwmgM4fuvCvqJLcaJZmPS43sJfaQ7coRymlOGIVfOCBozoOoC<br>
+OIGpjGqzu/BKafe2meuHqm2CG2TUNDvlTfwryt6sGOLUrQdHhdhGfsdPhbmryDbP<br>
+glE8XORcgeOgtiRCkM/3k5J2Rm+IehcyjHwskCctA91dAa8qJ3/hFvYYWjHONC9t<br>
+O4jstamPcqas7o/HQGz/SfZocTheBEBQOnftDjPqPGmU3pFZWis37q1Od3c4o8v7<br>
+GUNlBheXa6HsCgIjGCIBTw3ZVb4MquIUIIoiQi3f+fLAp+ks5GlnUe7v5nWyMCzc<br>
+lrpr1fSDItNLwVR4kHXcYayp3Uw7wp5X6+zpRmHQgnhdG2Mwp7JKrgZ8mS+Ob23i<br>
+uPK95XA4CJy7hBdXJo2XZ6kw3eB9+JB1fYEualyX5l0JvIGkpwQskW0j1/mZqe//<br>
+vZ735oyXXGuTKyymj+DH7dxXexl3+psYcp/MsU8+OlvhrBn6VroAFCh7kSQSMFtv<br>
+Hy9VAqI=<br>
+=t1Gi<br>
+-----END PGP PUBLIC KEY BLOCK-----
+                    </span></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Insert more FAQs here by changing #collapse<number> in two places. -->
+
             </div>
           </div>
 
       </div>
+
 
       <!-- Not crucial, but we put this under a CC By-SA 3.0 license. -->
       <!-- http://creativecommons.org/licenses/ -->
@@ -326,18 +626,22 @@
       </div>
     </div>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <!-- Google Analytics code snippets -->
+     
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+     
+       ga('create', 'UA-43028302-1', 'cambix.org');
+       ga('send', 'pageview');
+     
+     </script>
 
-  ga('create', 'UA-42843113-1', 'bitstart.net');
-  ga('send', 'pageview');
-
-</script>
   </body>
 </html>
+<<<<<<< HEAD
 =======
 	<head>
 	<meta charset="utf-8">
@@ -442,3 +746,6 @@
 
 
 >>>>>>> 616fad4154c46adef0f5f5a5b008c775e9288a27
+=======
+
+>>>>>>> dev

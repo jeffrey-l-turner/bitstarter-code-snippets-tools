@@ -18,6 +18,10 @@ app.get('/', function(request, response) {
   response.send(data);
 });
 
+// Return favicon and static elements -- gifs, etc.
+app.use(express.favicon(__dirname + '/assets/favicon.ico', {maxAge: 86400000}));
+app.use(express.static(__dirname + '/assets'));
+
 // Render example.com/orders
 app.get('/orders', function(request, response) {
   global.db.Order.findAll().success(function(orders) {
